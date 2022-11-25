@@ -4,17 +4,15 @@ const port = 3000
 const app = express()
 
 app.get("/", (req, res) => {
-    res.send("Hello World Express")
+    res.sendFile(__dirname + "/html/index.html")
 })
 
-app.get("/mensagem", (req, res) => {
-    res.send("Treinando endpoints com express")
+app.get("/sobre", (req, res) => {
+    res.sendFile(__dirname + "/html/sobre.html")
 })
 
 app.get("/parametros/:nome/:idade", (req, res) => {
     res.send(req.params)
 })
 
-app.listen(port, function () {
-    console.log("Rodando em http://localhost:3000")
-})
+app.listen(port, () => { console.log("Rodando em http://localhost:3000") })
